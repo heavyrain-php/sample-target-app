@@ -10,16 +10,17 @@ use Heavyrain\Contracts\ClientInterface;
 
 return static function (ClientInterface $cl): void {
     $cl->get('/')
-        ->assertHeaderHas('Content-Length', '27')
+        ->assertHeaderHas('Content-Length', 27)
         ->assertBodyContains('Hello world.');
 
     $cl->postJson('/json', ['a' => 'is b'])
         ->assertIsJson();
 
-    $cl->get('/undefinedpath')
-        ->assertStatusCode(404);
+    $cl->requestWithOptions(
+        method: 'GET',
+        path: '/users/{userId}',
+        pathArgs: ['userId' => 1],
+    );
 
-    $cl->get('/users/1');
-
-    $cl->get('/posts/?postId=2');
+    $cl->getJson('/posts/', ['postId' => 2]);
 };

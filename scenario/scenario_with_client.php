@@ -6,12 +6,16 @@
 
 declare(strict_types=1);
 
-return static function (ScenarioClient $client): void {
+use Heavyrain\Contracts\ClientInterface;
+
+return static function (ClientInterface $cl): void {
+    $client = new ScenarioClient($cl);
+
     $client->getIndex()
         ->assertHeaderHas('Content-Length', 27)
         ->assertBodyContains('Hello world.');
 
-    $client->inst->waitSec(0.1);
+    $cl->waitSec(0.1);
 
     $client->postJson(['a' => 'is b'])
         ->assertJsonHasKey('hello');

@@ -11,7 +11,7 @@ use Heavyrain\Contracts\ClientInterface;
 
 final class ScenarioClient
 {
-    public function __construct(public readonly ClientInterface $inst)
+    public function __construct(private readonly ClientInterface $cl)
     {
     }
 
@@ -22,7 +22,7 @@ final class ScenarioClient
      */
     public function getIndex(): AssertableResponseInterface
     {
-        return $this->inst->get('/');
+        return $this->cl->get('/');
     }
 
     /**
@@ -33,7 +33,7 @@ final class ScenarioClient
      */
     public function postJson(array $body): AssertableResponseInterface
     {
-        return $this->inst->postJson(
+        return $this->cl->postJson(
             path: '/json',
             body: $body,
         );
@@ -42,27 +42,29 @@ final class ScenarioClient
     /**
      * GET /users/{userId}
      *
-     * @param integer $userId
+     * @param int $userId
      * @return AssertableResponseInterface
      */
     public function getUsers(int $userId): AssertableResponseInterface
     {
-        return $this->inst->getJson(
-            path: '/users/' . $userId,
+        return $this->cl->requestWithOptions(
+            method: 'GET',
+            path: '/users/{userId}',
+            pathArgs: ['userId' => $userId],
         );
     }
 
     /**
      * GET /posts/?postId=
      *
-     * @param integer $postId
+     * @param int $postId
      * @return AssertableResponseInterface
      */
     public function getPosts(int $postId): AssertableResponseInterface
     {
-        return $this->inst->getJson(
+        return $this->cl->getJson(
             path: '/posts/',
-            query: \compact('postId'),
+            query: ['postId' => $postId],
         );
     }
 }
