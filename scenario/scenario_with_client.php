@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 return static function (ScenarioClient $client): void {
     $client->getIndex()
-        ->assertHeaderHas('Content-Length', '27')
-        ->assertContentHas('Hello world.');
+        ->assertHeaderHas('Content-Length', 27)
+        ->assertBodyContains('Hello world.');
 
     $client->inst->waitSec(0.1);
 
     $client->postJson(['a' => 'is b'])
-        ->assertJsonHas('hello', 'world.');
+        ->assertJsonHasKey('hello');
 
     $client->getUsers(1);
 

@@ -6,24 +6,20 @@
 
 declare(strict_types=1);
 
-use Heavyrain\Scenario\InstructorInterface;
+use Heavyrain\Contracts\ClientInterface;
 
-return static function (InstructorInterface $inst): void {
-    $inst->get('/')
-        ->assertOk()
+return static function (ClientInterface $cl): void {
+    $cl->get('/')
         ->assertHeaderHas('Content-Length', '27')
-        ->assertContentHas('Hello world.');
+        ->assertBodyContains('Hello world.');
 
-    $inst->postJson('/json', ['a' => 'is b'])
-        ->assertOk()
-        ->assertJsonHas('hello', 'world.');
+    $cl->postJson('/json', ['a' => 'is b'])
+        ->assertIsJson();
 
-    $inst->get('/undefinedpath')
+    $cl->get('/undefinedpath')
         ->assertStatusCode(404);
 
-    $inst->getJson('/users/1')
-        ->assertOk();
+    $cl->get('/users/1');
 
-    $inst->getJson('/posts/?postId=2')
-        ->assertOk();
+    $cl->get('/posts/?postId=2');
 };
