@@ -21,6 +21,11 @@ return static function (ClientInterface $cl): void {
         path: '/users/{userId}',
         pathArgs: ['userId' => 1],
     );
+    $cl->requestWithOptions(
+        method: 'GET',
+        path: '/users/{userId}',
+        pathArgs: ['userId' => 2],
+    );
 
     $cl->getJson('/posts/', ['postId' => 2]);
 };
