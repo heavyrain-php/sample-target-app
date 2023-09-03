@@ -67,6 +67,7 @@ $app->add(static function (ServerRequestInterface $request, RequestHandlerInterf
 $app->get('/', static function (ServerRequestInterface $request, ResponseInterface $response): ResponseInterface {
     $body = '<!DOCTYPE html>Hello world.';
     $response->getBody()->write($body);
+    \usleep(10_000);
     return $response->withHeader('Content-Length', strlen($body));
 });
 
