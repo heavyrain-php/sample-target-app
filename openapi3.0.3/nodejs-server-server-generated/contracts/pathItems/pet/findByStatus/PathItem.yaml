@@ -1,0 +1,14 @@
+get:
+  tags:
+    - pet
+  summary: Finds Pets by status
+  description: Multiple status values can be provided with comma separated strings
+  operationId: findPetsByStatus
+  parameters:
+    - $ref: '#/components/parameters/Status'
+  responses:
+    $ref: ./GetResponses.yaml
+  security:
+    - petstore_auth:
+        - write:pets
+        - read:pets

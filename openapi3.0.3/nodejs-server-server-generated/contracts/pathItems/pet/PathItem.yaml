@@ -1,0 +1,28 @@
+put:
+  tags:
+    - pet
+  summary: Update an existing pet
+  description: Update an existing pet by Id
+  operationId: updatePet
+  requestBody:
+    $ref: ./PutRequest.yaml
+  responses:
+    $ref: ./PutResponses.yaml
+  security:
+    - petstore_auth:
+        - write:pets
+        - read:pets
+post:
+  tags:
+    - pet
+  summary: Add a new pet to the store
+  description: Add a new pet to the store
+  operationId: addPet
+  requestBody:
+    $ref: ./PostRequest.yaml
+  responses:
+    $ref: ./PostResponses.yaml
+  security:
+    - petstore_auth:
+        - write:pets
+        - read:pets
