@@ -25,12 +25,12 @@ return [
     'slim.displayErrorDetails' => true,
 
     // Whether to display errors on the internal PHP log or not.
-    'slim.logErrors' => false,
+    'slim.logErrors' => true,
 
     // If true, display full errors with message and stack trace on the PHP log.
     // If false, display only "Slim Application Error" on the PHP log.
     // Doesn't do anything when 'logErrors' is false.
-    'slim.logErrorDetails' => false,
+    'slim.logErrorDetails' => true,
 
     // CORS settings
     // @see https://github.com/neomerx/cors-psr7/blob/master/src/Strategies/Settings.php
@@ -42,7 +42,7 @@ return [
         0, // preFlightCacheMaxAge
         false, // isForceAddMethods
         false, // isForceAddHeaders
-        true, // isUseCredentials
+        false, // isUseCredentials
         true, // areAllOriginsAllowed
         [], // allowedOrigins
         true, // areAllMethodsAllowed
