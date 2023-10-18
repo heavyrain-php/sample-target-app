@@ -21,6 +21,7 @@
  * https://github.com/openapitools/openapi-generator
  * Please update the test case below to test the endpoint.
  */
+
 namespace OpenAPIServer\Api;
 
 use PHPUnit\Framework\TestCase;
@@ -37,7 +38,6 @@ use OpenAPIServer\Api\PetApi;
  */
 class PetApiTest extends TestCase
 {
-
     /**
      * Setup before running any test cases
      */

@@ -23,6 +23,7 @@
  * Extend this class with your controller. You can inject dependencies via class constructor,
  * @see https://github.com/PHP-DI/Slim-Bridge basic example.
  */
+
 namespace OpenAPIServer\Api;
 
 use Psr\Http\Message\ServerRequestInterface;
@@ -104,7 +105,7 @@ abstract class AbstractUserApi
     /**
      * GET getUserByName
      * Summary: Get user by user name
-     * Notes: 
+     * Notes:
      * Output-Formats: [application/json, application/xml]
      *
      * @param ServerRequestInterface $request  Request
@@ -126,7 +127,7 @@ abstract class AbstractUserApi
     /**
      * GET loginUser
      * Summary: Logs user into the system
-     * Notes: 
+     * Notes:
      * Output-Formats: [application/xml, application/json]
      *
      * @param ServerRequestInterface $request  Request
@@ -149,7 +150,7 @@ abstract class AbstractUserApi
     /**
      * GET logoutUser
      * Summary: Logs out current logged in user session
-     * Notes: 
+     * Notes:
      *
      * @param ServerRequestInterface $request  Request
      * @param ResponseInterface      $response Response

@@ -21,6 +21,7 @@
  * https://github.com/openapitools/openapi-generator
  * Please update the test case below to test the model.
  */
+
 namespace OpenAPIServer\Model;
 
 use PHPUnit\Framework\TestCase;
@@ -37,7 +38,6 @@ use OpenAPIServer\Model\Address;
  */
 class AddressTest extends TestCase
 {
-
     /**
      * Setup before running any test cases
      */

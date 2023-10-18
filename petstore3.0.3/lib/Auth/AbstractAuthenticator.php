@@ -21,6 +21,7 @@
  * https://github.com/openapitools/openapi-generator
  * Do not edit the class manually.
  */
+
 namespace OpenAPIServer\Auth;
 
 use Psr\Http\Message\ServerRequestInterface;
@@ -76,10 +77,10 @@ abstract class AbstractAuthenticator
      */
     public function __invoke(ServerRequestInterface &$request, TokenSearch $tokenSearch)
     {
-       /**
-        * Try find authorization token via header, parameters, cookie or attribute
-        * If token not found, return response with status 401 (unauthorized)
-        */
+        /**
+         * Try find authorization token via header, parameters, cookie or attribute
+         * If token not found, return response with status 401 (unauthorized)
+         */
         $token = $tokenSearch->getToken($request);
 
         /**

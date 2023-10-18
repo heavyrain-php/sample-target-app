@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace OpenAPIServer\Auth;
 
@@ -52,10 +54,10 @@ class Authenticator extends AbstractAuthenticator
      */
     public function __invoke(ServerRequestInterface &$request, TokenSearch $tokenSearch)
     {
-       /**
-        * Try find authorization token via header, parameters, cookie or attribute
-        * If token not found, return response with status 401 (unauthorized)
-        */
+        /**
+         * Try find authorization token via header, parameters, cookie or attribute
+         * If token not found, return response with status 401 (unauthorized)
+         */
         $token = $tokenSearch->getToken($request);
 
         /**

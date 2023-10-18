@@ -23,6 +23,7 @@
  * Extend this class with your controller. You can inject dependencies via class constructor,
  * @see https://github.com/PHP-DI/Slim-Bridge basic example.
  */
+
 namespace OpenAPIServer\Api;
 
 use Psr\Http\Message\ServerRequestInterface;
@@ -172,7 +173,7 @@ abstract class AbstractPetApi
     /**
      * POST updatePetWithForm
      * Summary: Updates a pet in the store with form data
-     * Notes: 
+     * Notes:
      *
      * @param ServerRequestInterface $request  Request
      * @param ResponseInterface      $response Response
@@ -196,7 +197,7 @@ abstract class AbstractPetApi
     /**
      * POST uploadFile
      * Summary: uploads an image
-     * Notes: 
+     * Notes:
      * Output-Formats: [application/json]
      *
      * @param ServerRequestInterface $request  Request
